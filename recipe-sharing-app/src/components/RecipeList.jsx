@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link component
 import { useRecipeStore } from './recipeStore';
 
 const RecipeList = () => {
@@ -10,6 +11,7 @@ const RecipeList = () => {
         <div key={recipe.id}>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
+          <Link to={`/recipe/${recipe.id}`}>View Details</Link> {/* Link to RecipeDetails */}
         </div>
       ))}
     </div>
