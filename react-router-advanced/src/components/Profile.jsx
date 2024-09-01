@@ -1,15 +1,18 @@
+// src/components/Profile.jsx
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
 function Profile() {
   return (
-    <div>
+    <div className="container">
+      <h1>Profile Page</h1>
       <nav>
-        <Link to="details">Profile Details</Link> | 
-        <Link to="settings">Profile Settings</Link>
+        <ul>
+          <li><Link to="details">Profile Details</Link></li>
+          <li><Link to="settings">Profile Settings</Link></li>
+        </ul>
       </nav>
-      <hr />
-      <Outlet />
+      <Outlet /> {/* Renders nested routes */}
     </div>
   );
 }
