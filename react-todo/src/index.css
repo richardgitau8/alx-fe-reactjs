@@ -1,0 +1,19 @@
+/* src/index.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #4f2f20; /* Dark background */
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height for centering */
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
