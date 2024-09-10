@@ -16,24 +16,24 @@ const HomePage = () => {
   );
 
   return (
-    <div className="flex">
-      <Sidebar />
-      <main className="flex-1 ml-80 p-4">
+    <div className="flex flex-wrap md:flex-nowrap lg:flex-nowrap">
+      <Sidebar className="w-full md:w-1/4 lg:w-1/4" />
+      <main className="flex-1 ml-80 p-4 md:ml-12 lg:ml-12">
         <h1 className="text-4xl font-bold mb-6 text-center">Recipe Collection</h1>
 
         {/* Search Bar */}
-        <div className="mb-6 text-center">
+        <div className="mb-6 text-center md:w-1/2 lg:w-1/2 mx-auto">
           <input
             type="text"
             placeholder="Search recipes..."
-            className="p-2 border border-gray-300 rounded-lg w-full max-w-sm mx-auto"
+            className="p-2 border border-gray-300 rounded-lg w-full max-w-sm"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
         {/* Recipe Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredRecipes.map((recipe) => (
             <div
               key={recipe.id}
