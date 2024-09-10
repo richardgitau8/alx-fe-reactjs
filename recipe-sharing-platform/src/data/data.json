@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "title": "Spaghetti Bolognese",
+      "image": "/images/spaghetti.jpg",
+      "summary": "A classic Italian pasta dish with a rich and savory sauce."
+    },
+    {
+      "id": 2,
+      "title": "Chicken Curry",
+      "image": "/images/chicken-curry.jpg",
+      "summary": "A flavorful dish with tender chicken simmered in a spicy curry sauce."
+    },
+    {
+      "id": 3,
+      "title": "Vegetable Stir-Fry",
+      "image": "/images/veg-stirfry.jpg",
+      "summary": "A healthy mix of vegetables sautéed in a savory soy-based sauce."
+    },
+    {
+      "id": 4,
+      "title": "Beef Tacos",
+      "image": "/images/beef-tacos.jpg",
+      "summary": "Tasty beef tacos with fresh toppings and a zesty salsa."
+    },
+    {
+      "id": 5,
+      "title": "Salmon Teriyaki",
+      "image": "/images/salmon-teriyaki.jpg",
+      "summary": "Grilled salmon with a sweet and savory teriyaki glaze."
+    },
+    {
+      "id": 6,
+      "title": "Greek Salad",
+      "image": "/images/greek-salad.jpg",
+      "summary": "A refreshing salad with cucumbers, tomatoes, olives, and feta cheese."
+    },
+    {
+      "id": 7,
+      "title": "Pancakes",
+      "image": "/images/pancakes.jpg",
+      "summary": "Fluffy pancakes served with maple syrup and fresh berries."
+    },
+    {
+      "id": 8,
+      "title": "Chicken Alfredo",
+      "image": "/images/chicken-alfredo.jpg",
+      "summary": "Creamy Alfredo pasta with tender chicken and Parmesan cheese."
+    }
+  ]
+  
