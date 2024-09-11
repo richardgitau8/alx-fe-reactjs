@@ -1,113 +1,119 @@
-
-import { useState } from 'react';
-
+import React, { useState } from 'react';
 
 const AddRecipeForm = () => {
-  const [recipe, setRecipe] = useState({
-    title: '',
-    ingredients: '',
-    instructions: '',
-    image: null, // for storing the image
-  });
+  // State for form fields
+  const [title, setTitle] = useState('');
+  const [ingredients, setIngredients] = useState('');
+  const [steps, setSteps] = useState('');
+  const [image, setImage] = useState(null);
 
   // Handle form input changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setRecipe({ ...recipe, [name]: value });
-  };
-
-  // Handle file upload
-  const handleImageUpload = (e) => {
-    setRecipe({ ...recipe, image: e.target.files[0] });
+    const { name, value, type, files } = e.target;
+    if (type === 'file') {
+      setImage(files[0]);
+    } else {
+      switch (name) {
+        case 'title':
+          setTitle(value);
+          break;
+        case 'ingredients':
+          setIngredients(value);
+          break;
+        case 'steps':
+          setSteps(value);
+          break;
+        default:
+          break;
+      }
+    }
   };
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Recipe submitted:', recipe);
+
+    // Validate fields
+    if (!title || !ingredients || !steps || !image) {
+      alert('Please fill out all fields and upload an image.');
+      return;
+    }
+
+    // Create a new recipe object
+    const newRecipe = {
+      title,
+      ingredients: ingredients.split('\n'),
+      steps: steps.split('\n'),
+      image: URL.createObjectURL(image) // Create a URL for the image
+    };
+
+    // For demonstration, we'll log the new recipe to the console
+    // In a real app, you'd likely send this to a backend or update state in context/redux
+    console.log(newRecipe);
+
+    // Reset the form
+    setTitle('');
+    setIngredients('');
+    setSteps('');
+    setImage(null);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg"
-    >
-      <h2 className="text-2xl font-semibold text-center mb-6">Add New Recipe</h2>
-
-      {/* Recipe Title */}
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-          Recipe Title
-        </label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          value={recipe.title}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500"
-          required
-        />
-      </div>
-
-      {/* Ingredients */}
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ingredients">
-          Ingredients
-        </label>
-        <textarea
-          id="ingredients"
-          name="ingredients"
-          value={recipe.ingredients}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      {/* Instructions */}
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="instructions">
-          Instructions
-        </label>
-        <textarea
-          id="instructions"
-          name="instructions"
-          value={recipe.instructions}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500"
-          rows="5"
-          required
-        ></textarea>
-      </div>
-
-      {/* Image Upload */}
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">
-          Upload Image
-        </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500"
-          required
-        />
-      </div>
-
-      {/* Submit Button */}
-      <div className="flex justify-center">
+    <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold mb-4">Add New Recipe</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Recipe Title</label>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Ingredients (one per line)</label>
+          <textarea
+            name="ingredients"
+            value={ingredients}
+            onChange={handleChange}
+            rows="4"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Preparation Steps (one per line)</label>
+          <textarea
+            name="steps"
+            value={steps}
+            onChange={handleChange}
+            rows="4"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Recipe Image</label>
+          <input
+            type="file"
+            name="image"
+            onChange={handleChange}
+            accept="image/*"
+            className="mt-1 block w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-lg file:text-sm file:font-semibold file:bg-gray-100 hover:file:bg-gray-200"
+            required
+          />
+        </div>
         <button
           type="submit"
-          className="bg-green-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none"
+          className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           Add Recipe
         </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
