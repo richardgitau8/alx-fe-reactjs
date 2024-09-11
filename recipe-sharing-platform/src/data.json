@@ -1,51 +1,171 @@
 [
-    {
-      "id": 1,
-      "title": "Spaghetti Bolognese",
-      "image": "/images/spaghetti.jpg",
-      "summary": "A classic Italian pasta dish with a rich and savory sauce."
-    },
-    {
-      "id": 2,
-      "title": "Chicken Curry",
-      "image": "/images/chicken-curry.jpg",
-      "summary": "A flavorful dish with tender chicken simmered in a spicy curry sauce."
-    },
-    {
-      "id": 3,
-      "title": "Vegetable Stir-Fry",
-      "image": "/images/veg-stirfry.jpg",
-      "summary": "A healthy mix of vegetables sautéed in a savory soy-based sauce."
-    },
-    {
-      "id": 4,
-      "title": "Beef Tacos",
-      "image": "/images/beef-tacos.jpg",
-      "summary": "Tasty beef tacos with fresh toppings and a zesty salsa."
-    },
-    {
-      "id": 5,
-      "title": "Salmon Teriyaki",
-      "image": "/images/salmon-teriyaki.jpg",
-      "summary": "Grilled salmon with a sweet and savory teriyaki glaze."
-    },
-    {
-      "id": 6,
-      "title": "Greek Salad",
-      "image": "/images/greek-salad.jpg",
-      "summary": "A refreshing salad with cucumbers, tomatoes, olives, and feta cheese."
-    },
-    {
-      "id": 7,
-      "title": "Pancakes",
-      "image": "/images/pancakes.jpg",
-      "summary": "Fluffy pancakes served with maple syrup and fresh berries."
-    },
-    {
-      "id": 8,
-      "title": "Chicken Alfredo",
-      "image": "/images/chicken-alfredo.jpg",
-      "summary": "Creamy Alfredo pasta with tender chicken and Parmesan cheese."
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "image": "/images/spaghetti.jpg",
+    "summary": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 large eggs",
+      "50g pecorino cheese",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Boil the spaghetti until al dente.",
+      "In a pan, cook the pancetta until crisp.",
+      "Whisk the eggs and grated pecorino together in a bowl.",
+      "Drain the spaghetti and mix with pancetta. Remove from heat and quickly stir in the egg mixture.",
+      "Season with salt and pepper, then serve with extra cheese."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Chicken Curry",
+    "image": "/images/chicken-curry.jpg",
+    "summary": "A flavorful and spicy chicken curry with a rich sauce.",
+    "ingredients": [
+      "500g chicken breast, diced",
+      "1 onion, chopped",
+      "3 garlic cloves, minced",
+      "1 tbsp ginger, grated",
+      "2 tbsp curry powder",
+      "400ml coconut milk",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Heat oil in a pan and sauté the onions, garlic, and ginger until soft.",
+      "Add the curry powder and cook for another minute.",
+      "Add the chicken and cook until browned.",
+      "Pour in the coconut milk and simmer for 20 minutes until chicken is cooked through.",
+      "Season with salt and pepper and serve with rice."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Beef Tacos",
+    "image": "/images/beef-tacos.jpg",
+    "summary": "Mexican-style beef tacos with fresh toppings.",
+    "ingredients": [
+      "500g ground beef",
+      "1 onion, chopped",
+      "2 tsp cumin",
+      "2 tsp paprika",
+      "Taco shells",
+      "Shredded lettuce",
+      "Sour cream",
+      "Salsa"
+    ],
+    "instructions": [
+      "Cook the ground beef and onions in a pan until browned.",
+      "Stir in the cumin and paprika, and cook for another 2 minutes.",
+      "Warm the taco shells in the oven.",
+      "Assemble the tacos with beef, lettuce, sour cream, and salsa."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Vegetable Stir-fry",
+    "image": "/images/vegetable-stirfry.jpg",
+    "summary": "A quick and healthy vegetable stir-fry with soy sauce.",
+    "ingredients": [
+      "1 broccoli head, chopped",
+      "1 red bell pepper, sliced",
+      "1 carrot, julienned",
+      "200g tofu, cubed",
+      "2 tbsp soy sauce",
+      "1 tbsp sesame oil"
+    ],
+    "instructions": [
+      "Heat the sesame oil in a wok.",
+      "Stir-fry the tofu until golden brown, then remove and set aside.",
+      "Stir-fry the vegetables until tender-crisp.",
+      "Return the tofu to the wok and add the soy sauce.",
+      "Serve with rice or noodles."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Pancakes",
+    "image": "/images/pancakes.jpg",
+    "summary": "Fluffy pancakes served with syrup and fruit.",
+    "ingredients": [
+      "1 cup flour",
+      "1 tbsp sugar",
+      "1 tsp baking powder",
+      "1 cup milk",
+      "1 egg",
+      "2 tbsp butter, melted",
+      "Maple syrup and berries for serving"
+    ],
+    "instructions": [
+      "Mix the dry ingredients in one bowl and wet ingredients in another.",
+      "Combine both mixtures and stir until just combined.",
+      "Heat a skillet and cook the batter in small circles until bubbles form on the surface.",
+      "Flip and cook for another minute until golden.",
+      "Serve with syrup and berries."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Caesar Salad",
+    "image": "/images/caesar-salad.jpg",
+    "summary": "Crisp romaine lettuce with Caesar dressing and croutons.",
+    "ingredients": [
+      "1 romaine lettuce head, chopped",
+      "100g croutons",
+      "50g parmesan cheese, grated",
+      "Caesar dressing"
+    ],
+    "instructions": [
+      "Toss the chopped lettuce in a large bowl.",
+      "Add the croutons and grated parmesan.",
+      "Drizzle with Caesar dressing and toss to combine.",
+      "Serve immediately."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Chocolate Brownies",
+    "image": "/images/brownies.jpg",
+    "summary": "Rich and fudgy chocolate brownies.",
+    "ingredients": [
+      "200g dark chocolate",
+      "150g butter",
+      "200g sugar",
+      "3 eggs",
+      "100g flour",
+      "1 tsp vanilla extract"
+    ],
+    "instructions": [
+      "Preheat the oven to 180°C (350°F).",
+      "Melt the chocolate and butter together.",
+      "Whisk the eggs and sugar, then stir in the chocolate mixture.",
+      "Fold in the flour and vanilla extract.",
+      "Pour the batter into a lined baking dish and bake for 25-30 minutes.",
+      "Cool before slicing and serving."
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Minestrone Soup",
+    "image": "/images/minestrone.jpg",
+    "summary": "Hearty Italian vegetable soup with beans and pasta.",
+    "ingredients": [
+      "1 onion, chopped",
+      "2 carrots, sliced",
+      "2 celery stalks, sliced",
+      "1 can kidney beans",
+      "1 can diced tomatoes",
+      "100g small pasta",
+      "1 tsp dried oregano",
+      "Vegetable broth"
+    ],
+    "instructions": [
+      "Sauté the onion, carrots, and celery in a large pot until soft.",
+      "Add the diced tomatoes, beans, oregano, and broth.",
+      "Simmer for 20 minutes, then add the pasta and cook until tender.",
+      "Serve hot with bread."
+    ]
+  }
+]
