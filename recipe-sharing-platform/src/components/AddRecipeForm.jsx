@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 const AddRecipeForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [instructions, setInstructions] = useState('');
+  const [steps, setSteps] = useState([]);
+  const [newStep, setNewStep] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState('');
 
@@ -15,8 +16,15 @@ const AddRecipeForm = () => {
     setDescription(e.target.value);
   };
 
-  const handleInstructionsChange = (e) => {
-    setInstructions(e.target.value);
+  const handleStepChange = (e) => {
+    setNewStep(e.target.value);
+  };
+
+  const handleAddStep = () => {
+    if (newStep.trim() !== '') {
+      setSteps([...steps, newStep]);
+      setNewStep('');
+    }
   };
 
   const handleIngredientChange = (e) => {
@@ -33,7 +41,7 @@ const AddRecipeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here (e.g., send data to API)
-    console.log('Recipe added:', { title, description, instructions, ingredients });
+    console.log('Recipe added:', { title, description, steps, ingredients });
   };
 
   return (
@@ -47,8 +55,14 @@ const AddRecipeForm = () => {
         <textarea id="description" value={description} onChange={handleDescriptionChange} required />
       </div>
       <div>
-        <label htmlFor="instructions">Instructions:</label>
-        <textarea id="instructions" value={instructions} onChange={handleInstructionsChange} required />
+        <label htmlFor="steps">Steps:</label>
+        <ul>
+          {steps.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ul>
+        <input type="text" id="newStep" value={newStep} onChange={handleStepChange} />
+        <button type="button" onClick={handleAddStep}>Add Step</button>
       </div>
       <div>
         <label htmlFor="ingredients">Ingredients:</label>
