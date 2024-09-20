@@ -1,19 +1,16 @@
 import axios from 'axios';
 
-// Fetch GitHub user function
-const fetchGitHubUser = async (username) => {
+// Function to fetch user data from GitHub API
+const fetchUserData = async (username) => {
+  const apiUrl = `https://api.github.com/users/${username}`; // API endpoint
+
   try {
-    const apiKey = process.env.REACT_APP_GITHUB_API_KEY; // Use environment variable
-    const response = await axios.get(`https://api.github.com/users/${username}`, {
-      headers: {
-        Authorization: `token ${apiKey}`, // Include API key in the request if necessary
-      },
-    });
-    return response.data; // Return the user data
+    const response = await axios.get(apiUrl);  // Make GET request to GitHub API
+    return response.data;  // Return the user data
   } catch (error) {
     console.error('Error fetching GitHub user:', error);
-    throw error; // Rethrow error to handle it in the component
+    throw error;  // Throw error so it can be handled in the component
   }
 };
 
-export default fetchGitHubUser;
+export default fetchUserData;
