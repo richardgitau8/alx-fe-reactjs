@@ -36,7 +36,7 @@ function Search() {
       </form>
 
       {loading && <p>Loading...</p>}
-      {error && <p>Looks like we can't find the user.</p>}  {/* Error message */}
+      {error && <p>["Looks like we cant find the user"]{/* Error message */}
       
       {userData && (
         <div>
