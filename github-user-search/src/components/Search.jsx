@@ -1,56 +1,49 @@
 import React, { useState } from 'react';
-import fetchUserData from '../services/githubService';
+import { fetchUserData } from '../services/githubService'; // Adjust the path as necessary
 
-function Search() {
+const Search = () => {
   const [username, setUsername] = useState('');
-  const [userData, setUserData] = useState(null);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
+  const handleSearch = async () => {
     setLoading(true);
-    setError(false);
-
-    try {
-      const data = await fetchUserData(username);
-      setUserData(data);
-    } catch (err) {
-      setError(true);  // Set error state if API call fails
-    } finally {
-      setLoading(false);  // Stop loading state
-    }
+    const data = await fetchUserData(username);
+    setUsers(data);
+    setLoading(false);
   };
 
   return (
     <div>
-      <h2>Search for GitHub Users</h2>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter GitHub username"
-        />
-        <button type="submit">Search</button>
-      </form>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter GitHub username"
+      />
+      <button onClick={handleSearch}>Search</button>
 
-      {loading && <p>Loading...</p>}
-      {error && <p>["Looks like we cant find the user"]{/* Error message */}
-      
-      {userData && (
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
         <div>
-          <img src={userData.avatar_url} alt={`${userData.login}'s avatar`} width={100} />
-          <h3>{userData.name || 'No name available'}</h3>
-          <p>{userData.login}</p>  {/* Display GitHub login (username) */}
-          <p>{userData.bio || 'No bio available'}</p>
-          <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-            View GitHub Profile
-          </a>
+          {users.length > 0 ? (
+            users.map(user => (
+              <div key={user.login} className="border p-4 my-2">
+                <img src={user.avatar_url} alt={user.login} className="w-12 h-12" />
+                <h2 className="text-xl">{user.login}</h2>
+                <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+                  View Profile
+                </a>
+              </div>
+            ))
+          ) : (
+            <p>Looks like we can't find the user.</p>
+          )}
         </div>
       )}
     </div>
   );
-}
+};
 
 export default Search;
